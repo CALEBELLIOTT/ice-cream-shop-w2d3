@@ -17,7 +17,7 @@
   <main class="container-fluid">
     <div class="row text-light p-3 m-2">
       <div class="col-6 bg-light text-dark">
-        <div class="row border-bottom border-danger">
+        <div class="row border-bottom border-danger p-3">
           <div class="col-6">
             <h2>Name</h2>
           </div>
@@ -31,15 +31,20 @@
             <h2>Total</h2>
           </div>
         </div>
-        <!-- Start of code to be used as template -->
-        <div class="row" id="cart-items">
+        <div class="row p-3 pb-5" id="cart-items">
+        </div>
+        <div class="row">
+          <div class="col-12 d-flex align-items-end justify-content-end">
+            <h1 id="total-price">Total: $0.00</h1>
+          </div>
         </div>
       </div>
-      <div class="col-6 text-light">
+      <div class="col-6 text-light text-align-bottom">
         <div class="row" id="toppings-list"></div>
         <div class="row" id="vessels-list"></div>
         <div class="row" id="ice-cream-list"></div>
       </div>
+    </div>
     </div>
   </main>
 

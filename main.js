@@ -29,8 +29,8 @@ function drawProducts() {
     creamTemplate += `
     <div class="col-4">
     <div class="product my-4" onclick="addToCart(findProduct('ice-cream', '${cream.id}'))">
-      <img src="${cream.image}" class="img-fluid p-3" alt="">
-      <h3>${cream.name}: $${cream.price}</h3>
+      <img src="${cream.image}" class="p-3" alt="">
+      <h5>${cream.name}: $${cream.price}</h5>
     </div>
   </div>
     `
@@ -40,7 +40,7 @@ function drawProducts() {
     <div class="col-4">
     <div class="product my-4" onclick="addToCart(findProduct('vessel', '${v.id}'))">
       <img src="${v.image}" class="img-fluid p-3" alt="">
-      <h3>${v.name}: $${v.price}</h3>
+      <h5>${v.name}: $${v.price}</h5>
     </div>
   </div>
     `
@@ -50,7 +50,7 @@ function drawProducts() {
     <div class="col-4">
     <div class="product my-4" onclick="addToCart(findProduct('topping', '${t.id}'))">
       <img src="${t.image}" class="img-fluid p-3" alt="">
-      <h3>${t.name}: $${t.price}</h3>
+      <h5>${t.name}: $${t.price}</h5>
     </div>
   </div>
     `
@@ -69,12 +69,12 @@ function drawCart() {
     </div>
     <div class="col-2">
       <h2>${i.count}</h2>
-   </div>
-    <div class="col-2">
-      <h2>${i.price}</h2>
     </div>
     <div class="col-2">
-      <h2>${i.count * i.price}</h2>
+      <h2>$${i.price.toFixed(2)}</h2>
+    </div>
+    <div class="col-2">
+      <h2>$${(i.count * i.price).toFixed(2)}</h2>
     </div>
     `
   })
@@ -96,6 +96,7 @@ function findProduct(type, id) {
 }
 
 function addToCart(object) {
+  let total = 0
   let trial = cart.find(i => i.id == object.id)
   if (!trial) {
     object.count = 1
@@ -106,8 +107,14 @@ function addToCart(object) {
   }
   console.log(cart);
   drawCart()
+
+  cart.forEach(i => {
+    total += i.price * i.count
+  })
+  document.getElementById('total-price').innerText = "total: $" + total.toFixed(2)
+
 }
 
 
-// SECTION on start
+// on start
 drawProducts()

@@ -11,8 +11,15 @@ body {
   background-color: rgb(114, 78, 78);
   text-align: center;
   padding: 1em;
+  height: 20em;
+  width: 15em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .product img {
-  max-height: 50%;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
 }
