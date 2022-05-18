@@ -61,9 +61,25 @@ function drawProducts() {
 }
 
 function drawCart() {
-
+  let template = ``
+  cart.forEach(i => {
+    template += `
+    <div class="col-6">
+      <h2>${i.name}</h2>
+    </div>
+    <div class="col-2">
+      <h2>${i.count}</h2>
+   </div>
+    <div class="col-2">
+      <h2>${i.price}</h2>
+    </div>
+    <div class="col-2">
+      <h2>${i.count * i.price}</h2>
+    </div>
+    `
+  })
+  document.getElementById("cart-items").innerHTML = template
 }
-
 
 function findProduct(type, id) {
   let searched;
@@ -89,6 +105,7 @@ function addToCart(object) {
     object.count++
   }
   console.log(cart);
+  drawCart()
 }
 
 
