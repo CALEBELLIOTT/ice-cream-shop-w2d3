@@ -15,9 +15,9 @@
 <body>
 
   <main class="container-fluid">
-    <div class="row bg-dark text-light p-3 m-2">
-      <div class="col-4 bg-light text-dark">
-        <div class="row">
+    <div class="row text-light p-3 m-2">
+      <div class="col-6 bg-light text-dark">
+        <div class="row border-bottom border-danger">
           <div class="col-6">
             <h2>Name</h2>
           </div>
@@ -32,7 +32,7 @@
           </div>
         </div>
         <!-- Start of code to be used as template -->
-        <div class="row">
+        <div class="row" id="cart-items">
           <div class="col-6">
             <h2>berry</h2>
           </div>
@@ -47,37 +47,10 @@
           </div>
         </div>
       </div>
-      <div class="col-8 text-light">
-        <div class="row">
-          <div class="col-12">
-            <h1>Toppings</h1>
-          </div>
-          <!-- NOTE going to dynamically add the below content -->
-          <div class="col-4">
-            <div class="product my-4 rounded">
-              <img src="https://m.media-amazon.com/images/I/71VNjBMakfL._SL1500_.jpg" class="img-fluid p-3" alt="">
-              <h3>Cone: $3</h3>
-            </div>
-          </div>
-          <div class="col-12">
-            <h1>Vessels</h1>
-          </div>
-          <div class="col-4">
-            <div class="product my-4">
-              <img src="https://m.media-amazon.com/images/I/71VNjBMakfL._SL1500_.jpg" class="img-fluid p-3" alt="">
-              <h3>Cone: $3</h3>
-            </div>
-          </div>
-          <div class="col-12">
-            <h1>Ice Cream</h1>
-          </div>
-          <div class="col-4">
-            <div class="product my-4">
-              <img src="https://m.media-amazon.com/images/I/71VNjBMakfL._SL1500_.jpg" class="img-fluid p-3" alt="">
-              <h3>Cone: $3</h3>
-            </div>
-          </div>
-        </div>
+      <div class="col-6 text-light">
+        <div class="row" id="toppings-list"></div>
+        <div class="row" id="vessels-list"></div>
+        <div class="row" id="ice-cream-list"></div>
       </div>
     </div>
   </main>
@@ -88,3 +61,10 @@
 </body>
 
 </html>
+
+<div class="col-4">
+  <div class="product my-4" onclick="addToCart('topping', '${t.id}')">
+    <img src="${t.image}" class="img-fluid p-3" alt="">
+    <h3>${t.name}: $${t.price}</h3>
+  </div>
+</div>
